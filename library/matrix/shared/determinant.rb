@@ -31,16 +31,4 @@ describe :determinant, :shared => true do
     m.send(@method).should == 1
   end
 
-  # Matrix#square? returns true if the first row of the matrix has the same
-  # number of columns as the matrix has rows. This causes the .determinant
-  # method to raise a NoMethodError for '-'. I've reported it as 
-  # http://redmine.ruby-lang.org/issues/show/1515 , and will guard for this bug
-  # in the #square? test. The examples below deliberately avoid this condition. 
-  it "returns 0 when the Matrix is not square" do 
-    m = Matrix[ [1], [2,3] ] 
-    m.send(@method).should == 0
-
-    m = Matrix[ [1,2,3], [4,2] ]
-    m.send(@method).should == 0
-  end  
 end
